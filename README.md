@@ -28,3 +28,4 @@ When the French feed runs the Tamper plugin will take the GUID and look it up in
 
 The English and French GUID field should have the same values.  Best way to do this is have your multilingual data in a single row:
 ID/GUID | Title (Eng) | Title (Fre) | Description (Eng) | Description (Fre)
+--------|-------------|-------------|-------------------|-------------------
