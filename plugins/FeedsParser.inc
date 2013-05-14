@@ -6,6 +6,8 @@
  *
  * Exact copy of the core FeedsParser in the Feeds module but with modifications
  * to support extra parent items for translation nodes.
+ *
+ * Source from Feeds-7.x-2.0-alpha8
  */
 
 /**

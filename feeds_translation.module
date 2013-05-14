@@ -9,8 +9,12 @@
  * Implements hook_feeds_plugins_alter().
  */
 function feeds_translation_feeds_plugins_alter(&$plugins) {
+  // Replace the default parser and processor
   if (isset($plugins['FeedsParser'])) {
     $plugins['FeedsParser']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins';
+  }
+  if (isset($plugins['FeedsProcessor'])) {
+    $plugins['FeedsProcessor']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins';
   }
 }
 
