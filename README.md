@@ -31,3 +31,4 @@ The English and French GUID field should have the same values.  Best way to do t
 ID/GUID|Title (Eng)|Title (Fre)|Description (Eng)|Description (Fre)
 -------|-----------|-----------|-----------------|-----------------
 1|English Title|French Title|English Description|French Description
+2|sample2|sample3|sample4|sample5
