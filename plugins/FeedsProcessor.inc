@@ -3,6 +3,8 @@
 /**
  * @file
  * Contains FeedsProcessor and related classes.
+ *
+ * Source: Feeds-7.x-2.0-alpha8
  */
 
 // Update mode for existing items.
