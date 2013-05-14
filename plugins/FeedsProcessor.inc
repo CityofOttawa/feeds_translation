@@ -640,6 +640,11 @@ abstract class FeedsProcessor extends FeedsPlugin {
         'description' => t('The globally unique identifier of the item. E. g. the feed item GUID in the case of a syndication feed. May be unique.'),
         'optional_unique' => TRUE,
       ),
+      'tnid' => array(
+        'name' => t('TNID'),
+        'description' => t('The TNID, translated node id, aka the node id that this node was translated from.'),
+        'optional_unique' => FALSE,
+      ),
     );
   }
 
@@ -745,6 +750,7 @@ abstract class FeedsProcessor extends FeedsPlugin {
     $entity->feeds_item->hash = $hash;
     $entity->feeds_item->url = '';
     $entity->feeds_item->guid = '';
+    $entity->feeds_item->tnid = '';
   }
 
   /**
