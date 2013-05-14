@@ -27,5 +27,7 @@ Usage
 When the French feed runs the Tamper plugin will take the GUID and look it up in the Feeds table to find the English/original node and apply the nid of the English node to the tnid of the French node.
 
 The English and French GUID field should have the same values.  Best way to do this is have your multilingual data in a single row:
+
 ID/GUID|Title (Eng)|Title (Fre)|Description (Eng)|Description (Fre)
 -------|-----------|-----------|-----------------|-----------------
+1|English Title|French Title|English Description|French Description
