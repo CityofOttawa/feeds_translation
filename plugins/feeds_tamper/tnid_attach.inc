@@ -28,11 +28,17 @@ function feeds_translation_tamper_tnid_attach_form($importer, $element_key, $set
  * Callback method for the tnid attach tamper plugin
  */
 function feeds_translation_tamper_tnid_attach_callback($result, $item_key, $element_key, &$field, $settings) {
-    $result = db_query_range("SELECT entity_id FROM {feeds_item} WHERE guid = :guid", 0, 1, array(':guid' => $field));
-    foreach ($result as $record) {
-       $field = $record->entity_id;
-    }
-    // Back-update translations on originating node
-    db_query("UPDATE {node} SET tnid = :newtnid WHERE nid = :oldnid", array(':newtnid' => $field, ':oldnid' => $field));
+  // We want to replace the field value with the node id so it can be set by tamper.
+  $result = db_query_range("SELECT entity_id FROM {feeds_item} WHERE guid = :guid", 0, 1, array(':guid' => $field));
+  foreach ($result as $record) {
+     $field = $record->entity_id;
+  }
+    
+  // Update the original node with the translation information
+  $node = node_load($field);
+  if (isset($node->nid)) {
+    $node->tnid = $field;
+    node_save($node);
+  }
 }
 

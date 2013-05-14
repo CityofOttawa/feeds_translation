@@ -9,7 +9,7 @@
  * Implements hook_ctools_plugin_directory().
  */
 function feeds_translation_ctools_plugin_directory($module, $api) {
-  if ($module == 'feeds_tamper' and intval($api) >= 2) {
+  if ($module == 'feeds_tamper') {
     return 'plugins/feeds_tamper';
   }
 }
