@@ -6,15 +6,24 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_directory().
+ */
+function feeds_translation_ctools_plugin_directory($module, $api) {
+  if ($module == 'feeds_tamper' and $api = 2) {
+    return 'plugins/feeds_tamper';
+  }
+}
+
+/**
  * Implements hook_feeds_plugins_alter().
  */
 function feeds_translation_feeds_plugins_alter(&$plugins) {
   // Replace the default parser and processor
   if (isset($plugins['FeedsParser'])) {
-    $plugins['FeedsParser']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins';
+    $plugins['FeedsParser']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins/feeds';
   }
   if (isset($plugins['FeedsProcessor'])) {
-    $plugins['FeedsProcessor']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins';
+    $plugins['FeedsProcessor']['handler']['path'] = drupal_get_path('module', 'feeds_translation') . '/plugins/feeds';
   }
 }
 
@@ -38,9 +47,6 @@ function feeds_translation_feeds_processor_targets_alter(&$targets, $entity_type
  * @see feeds/plugins/FeedsParser.inc
  */
 function feeds_translation_feeds_parser_sources_alter(&$sources, $content_type) {
-  dpm($sources);
-  dpm($content_type);
-  
   $sources['parent:tnid'] = array(
     'name' => t('Feed node: Translated Node ID'),
     'description' => t('The feed node tnid.'),
